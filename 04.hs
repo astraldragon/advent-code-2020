@@ -22,7 +22,7 @@ module AdventOfCode where
         key <- munch isAlpha
         char ':'
         munch (\char -> isPrint char && not (isSpace char))
-        string " " CA.<|> string " \n"
+        _ <- optional (string " " CA.<|> string " \n")
         return key
     
     parsePassport :: ReadP Passport
